@@ -1,17 +1,17 @@
 #include "pyramid.h"
 #include <iostream>
 
-// Реализация функции для вывода пирамиды
+// Р РµР°Р»РёР·Р°С†РёСЏ С„СѓРЅРєС†РёРё РґР»СЏ РІС‹РІРѕРґР° РїРёСЂР°РјРёРґС‹
 void print_pyramid(const std::vector<int>& arr)
 {
-    std::cout << "Исходный массив: ";
+    std::cout << "РСЃС…РѕРґРЅС‹Р№ РјР°СЃСЃРёРІ: ";
     for (int num : arr)
     {
         std::cout << num << " ";
     }
     std::cout << std::endl;
 
-    std::cout << "Пирамида:" << std::endl;
+    std::cout << "РџРёСЂР°РјРёРґР°:" << std::endl;
 
     for (size_t i = 0; i < arr.size(); ++i)
     {
@@ -42,39 +42,39 @@ void print_pyramid(const std::vector<int>& arr)
     }
 }
 
-// Реализация функции для получения индекса родителя
+// Р РµР°Р»РёР·Р°С†РёСЏ С„СѓРЅРєС†РёРё РґР»СЏ РїРѕР»СѓС‡РµРЅРёСЏ РёРЅРґРµРєСЃР° СЂРѕРґРёС‚РµР»СЏ
 int get_parent_index(int current_index)
 {
     if (current_index == 0)
     {
-        return -1; // Корень не имеет родителя
+        return -1; // РљРѕСЂРµРЅСЊ РЅРµ РёРјРµРµС‚ СЂРѕРґРёС‚РµР»СЏ
     }
     return (current_index - 1) / 2;
 }
 
-// Реализация функции для получения индекса левого потомка
+// Р РµР°Р»РёР·Р°С†РёСЏ С„СѓРЅРєС†РёРё РґР»СЏ РїРѕР»СѓС‡РµРЅРёСЏ РёРЅРґРµРєСЃР° Р»РµРІРѕРіРѕ РїРѕС‚РѕРјРєР°
 int get_left_child_index(int current_index, size_t size)
 {
     int left_child_index = 2 * current_index + 1;
     if (left_child_index >= size)
     {
-        return -1; // Левого потомка нет
+        return -1; // Р›РµРІРѕРіРѕ РїРѕС‚РѕРјРєР° РЅРµС‚
     }
     return left_child_index;
 }
 
-// Реализация функции для получения индекса правого потомка
+// Р РµР°Р»РёР·Р°С†РёСЏ С„СѓРЅРєС†РёРё РґР»СЏ РїРѕР»СѓС‡РµРЅРёСЏ РёРЅРґРµРєСЃР° РїСЂР°РІРѕРіРѕ РїРѕС‚РѕРјРєР°
 int get_right_child_index(int current_index, size_t size)
 {
     int right_child_index = 2 * current_index + 2;
     if (right_child_index >= size)
     {
-        return -1; // Правого потомка нет
+        return -1; // РџСЂР°РІРѕРіРѕ РїРѕС‚РѕРјРєР° РЅРµС‚
     }
     return right_child_index;
 }
 
-// Реализация функции для вывода текущего положения пользователя
+// Р РµР°Р»РёР·Р°С†РёСЏ С„СѓРЅРєС†РёРё РґР»СЏ РІС‹РІРѕРґР° С‚РµРєСѓС‰РµРіРѕ РїРѕР»РѕР¶РµРЅРёСЏ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ
 void print_current_position(const std::vector<int>& arr, int current_index)
 {
     int level = 0;
@@ -87,18 +87,18 @@ void print_current_position(const std::vector<int>& arr, int current_index)
 
     if (current_index == 0)
     {
-        std::cout << "Вы находитесь здесь: " << level << " root " << arr[current_index] << std::endl;
+        std::cout << "Р’С‹ РЅР°С…РѕРґРёС‚РµСЃСЊ Р·РґРµСЃСЊ: " << level << " root " << arr[current_index] << std::endl;
     }
     else
     {
         int parent_index = (current_index - 1) / 2;
         if (current_index % 2 == 1)
         {
-            std::cout << "Вы находитесь здесь: " << level << " left(" << arr[parent_index] << ") " << arr[current_index] << std::endl;
+            std::cout << "Р’С‹ РЅР°С…РѕРґРёС‚РµСЃСЊ Р·РґРµСЃСЊ: " << level << " left(" << arr[parent_index] << ") " << arr[current_index] << std::endl;
         }
         else
         {
-            std::cout << "Вы находитесь здесь: " << level << " right(" << arr[parent_index] << ") " << arr[current_index] << std::endl;
+            std::cout << "Р’С‹ РЅР°С…РѕРґРёС‚РµСЃСЊ Р·РґРµСЃСЊ: " << level << " right(" << arr[parent_index] << ") " << arr[current_index] << std::endl;
         }
     }
 }
