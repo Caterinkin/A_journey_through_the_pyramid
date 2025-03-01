@@ -5,26 +5,26 @@ int main()
 {
     setlocale(LC_ALL, "rus");
 
-    // Тестовые массивы
+    // РўРµСЃС‚РѕРІС‹Рµ РјР°СЃСЃРёРІС‹
     std::vector<int> arr1 = { 1, 3, 6, 5, 9, 8 };
     std::vector<int> arr2 = { 94, 67, 18, 44, 55, 12, 6, 42 };
     std::vector<int> arr3 = { 16, 11, 9, 10, 5, 6, 8, 1, 2, 4 };
 
-    // Выводим пирамиду для первого массива
+    // Р’С‹РІРѕРґРёРј РїРёСЂР°РјРёРґСѓ РґР»СЏ РїРµСЂРІРѕРіРѕ РјР°СЃСЃРёРІР°
     print_pyramid(arr1);
     std::cout << std::endl;
 
-    // Начинаем путешествие по пирамиде
-    int current_index = 0; // Начинаем с корня
+    // РќР°С‡РёРЅР°РµРј РїСѓС‚РµС€РµСЃС‚РІРёРµ РїРѕ РїРёСЂР°РјРёРґРµ
+    int current_index = 0; // РќР°С‡РёРЅР°РµРј СЃ РєРѕСЂРЅСЏ
     std::string command;
 
     do
     {
-        // Выводим текущее положение
+        // Р’С‹РІРѕРґРёРј С‚РµРєСѓС‰РµРµ РїРѕР»РѕР¶РµРЅРёРµ
         print_current_position(arr1, current_index);
 
-        // Запрашиваем команду
-        std::cout << "\nВведите команду (up, left, right, exit):";
+        // Р—Р°РїСЂР°С€РёРІР°РµРј РєРѕРјР°РЅРґСѓ
+        std::cout << "\nР’РІРµРґРёС‚Рµ РєРѕРјР°РЅРґСѓ (up, left, right, exit):";
         std::cin >> command;
 
         if (command == "up")
@@ -32,12 +32,12 @@ int main()
             int parent_index = get_parent_index(current_index);
             if (parent_index == -1)
             {
-                std::cout << "Ошибка! Отсутствует родитель" << std::endl;
+                std::cout << "РћС€РёР±РєР°! РћС‚СЃСѓС‚СЃС‚РІСѓРµС‚ СЂРѕРґРёС‚РµР»СЊ" << std::endl;
             }
             else
             {
                 current_index = parent_index;
-                std::cout << "Ок" << std::endl;
+                std::cout << "РћРє" << std::endl;
             }
         }
         else if (command == "left")
@@ -45,12 +45,12 @@ int main()
             int left_child_index = get_left_child_index(current_index, arr1.size());
             if (left_child_index == -1)
             {
-                std::cout << "Ошибка! Отсутствует левый потомок" << std::endl;
+                std::cout << "РћС€РёР±РєР°! РћС‚СЃСѓС‚СЃС‚РІСѓРµС‚ Р»РµРІС‹Р№ РїРѕС‚РѕРјРѕРє" << std::endl;
             }
             else
             {
                 current_index = left_child_index;
-                std::cout << "Ок" << std::endl;
+                std::cout << "РћРє" << std::endl;
             }
         }
         else if (command == "right")
@@ -58,21 +58,21 @@ int main()
             int right_child_index = get_right_child_index(current_index, arr1.size());
             if (right_child_index == -1)
             {
-                std::cout << "Ошибка! Отсутствует правый потомок" << std::endl;
+                std::cout << "РћС€РёР±РєР°! РћС‚СЃСѓС‚СЃС‚РІСѓРµС‚ РїСЂР°РІС‹Р№ РїРѕС‚РѕРјРѕРє" << std::endl;
             }
             else
             {
                 current_index = right_child_index;
-                std::cout << "Ок" << std::endl;
+                std::cout << "РћРє" << std::endl;
             }
         }
         else if (command == "exit")
         {
-            std::cout << "Завершение программы" << std::endl;
+            std::cout << "Р—Р°РІРµСЂС€РµРЅРёРµ РїСЂРѕРіСЂР°РјРјС‹" << std::endl;
         }
         else
         {
-            std::cout << "Неизвестная команда" << std::endl;
+            std::cout << "РќРµРёР·РІРµСЃС‚РЅР°СЏ РєРѕРјР°РЅРґР°" << std::endl;
         }
     } while (command != "exit");
 
